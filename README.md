@@ -5,6 +5,7 @@
 - ```sh git clone https://github.com/tobytwigger/swagger-pages my-project ```
 - ```sh cd my-project ```
 - Edit the .env file to match your needs
+- ```sh mv .env.example .env && nano .env ```
 - ```sh git remote remove origin && git remote add origin git@github.com:username/repository ```
 - ```sh npm install && npm run build ```
 - Update swagger.json file
