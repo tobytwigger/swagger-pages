@@ -1,9 +1,9 @@
 <template>
     <div class="home">
         <api-ui
-            username="tobytwigger"
-            repository="swagger-pages"
-            :branch="$route.params.version"></api-ui>
+            :username="username"
+            :repository="repository"
+            :branch="branch"></api-ui>
     </div>
 </template>
 
@@ -16,8 +16,16 @@
             ApiUi
         },
 
-        data() {
-            return {}
+        computed: {
+            username() {
+                return process.env.VUE_APP_GITHUB_USERNAME;
+            },
+            repository() {
+                return process.env.VUE_APP_GITHUB_REPOSITORY;
+            },
+            branch() {
+                return this.$route.params.version;
+            }
         }
     }
 </script>
