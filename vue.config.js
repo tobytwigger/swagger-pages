@@ -1,4 +1,4 @@
 module.exports = {
-  publicPath: '/swagger-pages',
+  publicPath: '/' + process.env.GITHUB_REPOSITORY,
   outputDir: 'docs'
 }

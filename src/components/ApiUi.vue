@@ -24,21 +24,32 @@
                 type: String
             }
         },
-        data() {
-            return {
+        watch: {
+            username() {
+                this.updateSwagger();
+            },
+            repository() {
+                this.updateSwagger();
+            },
+            branch() {
+                this.updateSwagger();
             }
         },
         mounted() {
-            SwaggerUI({
-                domNode: this.$refs['api-container'],
-                // url: 'https://petstore.swagger.io/v2/swagger.json',
-                url: this.swaggerUrl,
-                deepLinking: true,
-                presets: [presets.apis],
-                plugins: [
-                    plugins.Topbar,
-                ]
-            });
+            this.updateSwagger();
+        },
+        methods: {
+            updateSwagger() {
+                SwaggerUI({
+                    domNode: this.$refs['api-container'],
+                    url: this.swaggerUrl,
+                    deepLinking: true,
+                    presets: [presets.apis],
+                    plugins: [
+                        plugins.Topbar,
+                    ]
+                });
+            }
         },
         computed: {
             swaggerUrl() {

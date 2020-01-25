@@ -1,9 +1,9 @@
 <template>
     <div id="app">
         <div id="nav">
-            <router-link to="/">Latest Version</router-link>
+            <router-link to="/" key="latest-version">Latest Version</router-link>
             <span v-for="version in versions" :key="version">
-                | <router-link :to="'/version/' + version">{{version}}</router-link>
+                | <router-link :to="'/' + version">{{version}}</router-link>
             </span>
         </div>
         <router-view/>
@@ -48,7 +48,7 @@
 
         methods: {
             loadVersions() {
-                axios.get('https://api.github.com/repos/tobytwigger/swagger-pages/branches')
+                axios.get('https://api.github.com/repos/' + process.env.VUE_APP_GITHUB_USERNAME + '/' + process.env.VUE_APP_GITHUB_REPOSITORY + '/branches')
                     .then(response => this.versions = response.data.map(branch => branch.name))
                     .catch(error => alert('Could not load versions: ' + error.message));
             }
