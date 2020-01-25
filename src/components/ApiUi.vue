@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import SwaggerUI, {presets} from 'swagger-ui';
+    import SwaggerUI, {presets, plugins} from 'swagger-ui';
     import 'swagger-ui/dist/swagger-ui.css';
 
     export default {
@@ -31,16 +31,20 @@
         mounted() {
             SwaggerUI({
                 domNode: this.$refs['api-container'],
+                // url: 'https://petstore.swagger.io/v2/swagger.json',
                 url: this.swaggerUrl,
+                deepLinking: true,
                 presets: [presets.apis],
+                plugins: [
+                    plugins.Topbar,
+                ]
             });
         },
         computed: {
             swaggerUrl() {
-                return 'https://github.com/'
+                return 'https://raw.githubusercontent.com/'
                     + this.username + '/'
-                    + this.repository
-                    + '/blob/'
+                    + this.repository + '/'
                     + this.branch
                     + '/swagger.json';
             }
