@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import LatestVersion from "../views/LatestVersion";
 import Version from "../views/Version";
+import Home from "../views/Home";
 
 Vue.use(VueRouter);
 
 const routes = [
     {
         path: '/',
-        name: 'LatestVersion',
-        component: LatestVersion
+        name: 'Home',
+        component: Home
     },
     {
         path: '/:version',
