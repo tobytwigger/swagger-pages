@@ -28,6 +28,8 @@ Follow the instructions to get set up hosting your own API documentation
 5. Set up github-pages for the master branch /docs folder
 
 6. Create additional branches containing a swagger.json file to publish them as API documentation
+```sh git checkout -b --orphan v1.0.1```
+Edit swagger.json and push
 
 ## Updating
 
